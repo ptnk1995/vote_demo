@@ -1,6 +1,6 @@
 <div id="vote_form">
   <% if user_signed_in? %>
-    <% if (current_user.voted_down_on? post) || (!ActsAsVotable::Vote.find_by(votable_id: post.id).present?) %>
+    <% if (current_user.voted_down_on? post) || (!ActsAsVotable::Vote.where(voter_id: current_user,votable_id: post.id).present?) %>
       <%= link_to post_votes_path(post), method: :post, remote: true do %>
         <span class="glyphicon glyphicon-heart-empty"></span>
       <% end %>
@@ -11,7 +11,5 @@
     <% end %>
   <% end %>
   <%= t "posts.show.like" %> <%= post.get_upvotes.size %>
-  <% post.votes_for.up.by_type(User).voters.each do |user| %>
-    <%= user.email %>
-  <% end %>
+  <%= raw post.votes_for.up.by_type(User).voters.map { |voter| link_to voter.email, "#" }.join(', ') %>
 </div>
