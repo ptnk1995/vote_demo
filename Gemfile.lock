@@ -51,6 +51,9 @@ GEM
       sass (>= 3.3.4)
     builder (3.2.3)
     byebug (9.0.6)
+    closure_tree (6.5.0)
+      activerecord (>= 4.1.0)
+      with_advisory_lock (>= 3.0.0)
     coderay (1.1.1)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -178,6 +181,9 @@ GEM
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
+    with_advisory_lock (3.1.0)
+      activerecord (>= 3.2)
+      thread_safe
 
 PLATFORMS
   ruby
@@ -187,6 +193,7 @@ DEPENDENCIES
   acts_as_votable
   bootstrap-sass (~> 3.3.6)
   byebug
+  closure_tree
   coffee-rails (~> 4.2)
   devise
   jbuilder (~> 2.5)

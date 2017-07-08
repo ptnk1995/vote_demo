@@ -16,6 +16,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @supports = Supports::Post.new @post
     @comment = Comment.new
     @comments = @post.comments
   end

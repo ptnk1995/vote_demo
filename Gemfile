@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 gem "toastr-rails"
+gem "closure_tree"
 gem 'devise'
 gem "acts_as_votable"
 gem 'acts-as-taggable-on', '~> 4.0'

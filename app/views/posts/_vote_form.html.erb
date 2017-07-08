@@ -10,6 +10,6 @@
       <% end %>
     <% end %>
   <% end %>
-  <%= t "posts.show.like" %> <%= post.get_upvotes.size %>
-  <%= raw post.votes_for.up.by_type(User).voters.map { |voter| link_to voter.email, "#" }.join(', ') %>
+  <%= post.get_upvotes.size %> <%= t "posts.show.like" %>
+  <%= raw post.votes_for.up.by_type(User).voters.map { |voter| link_to voter.profile.name, "#" }.join(', ') %>
 </div>
