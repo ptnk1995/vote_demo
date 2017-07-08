@@ -5,6 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem "toastr-rails"
 gem 'devise'
 gem "acts_as_votable"
 gem 'acts-as-taggable-on', '~> 4.0'

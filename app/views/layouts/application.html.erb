@@ -10,9 +10,11 @@
 
   <body>
     <div class="container">
-      <% flash.each do |message_type, message| %>
-        <div class="aler alert-<%= message_type %>"><%= message %></div>
-      <% end %>
+      <script type="text/javascript">
+        <% flash.each do |message_type, message| %>
+          toastr['<%= message_type.gsub("notice", "info") %>']('<%= message %>');
+        <% end %>
+      </script>
       <%= yield %>
     </div>
   </body>
