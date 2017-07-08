@@ -20,4 +20,18 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  comments:
+    comment:
+      delete: "Delete"
+  posts:
+    show:
+      compose: "Compose new comment..."
+      comment: "Comment"
+    post:
+      by: "by"
+      read: "Read more"
+    index:
+      post: "POST"
+    post_form:
+      descrip: "Description"
+
