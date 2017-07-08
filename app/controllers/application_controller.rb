@@ -11,7 +11,6 @@ class ApplicationController < ActionController::Base
         :address, :phone_number, :description, :avatar]
     end
     devise_parameter_sanitizer.permit :sign_up do |user_params|
-      binding.pry
       user_params.permit :email, :password, :password_confirmation,
         profile_attributes: [:name, :birthday,
         :address, :phone_number, :description, :avatar]
