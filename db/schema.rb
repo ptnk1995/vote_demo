@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170708130728) do
+ActiveRecord::Schema.define(version: 20170709034819) do
 
   create_table "comment_hierarchies", id: false, force: :cascade do |t|
     t.integer "ancestor_id",   null: false
@@ -29,6 +29,19 @@ ActiveRecord::Schema.define(version: 20170708130728) do
     t.integer  "parent_id"
     t.index ["post_id"], name: "index_comments_on_post_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer  "notified_by_id"
+    t.integer  "notificationable_id"
+    t.string   "notificationable_type"
+    t.string   "notice_type"
+    t.integer  "read",                  default: 0
+    t.integer  "checked",               default: 0
+    t.integer  "user_id"
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|

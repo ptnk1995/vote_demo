@@ -12,12 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap
 //= require turbolinks
 //= require toastr
 //= require_tree .
 
 $(document).ready(function() {
-  $('#comment_content').keypress(function(e){
+  $('.add-comment').keypress(function(e){
     if(e.which == 13){
       $(this).closest('form').submit();
     }
