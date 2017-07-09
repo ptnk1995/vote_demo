@@ -10,6 +10,8 @@ class CommentsController < ApplicationController
     end
 
     if @comment.save
+      NotificationServices::CreateNotification.new(comment: @comment,
+        current_user_id: current_user.id).create_notification
       respond_to do |format|
         format.html{redirect_to :back}
         format.js

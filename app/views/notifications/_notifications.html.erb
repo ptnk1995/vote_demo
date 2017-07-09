@@ -1,0 +1,12 @@
+<%= link_to notifications_path, class: "dropdown-toggle", id: "noti-count",
+  data: {toggle: "dropdown"}, aria: {haspopup: "true", expanded: "false"},
+  remote: true do %>
+  <span class="glyphicon glyphicon-bell"></span>
+  <span class="notification-number"><%= number %></span>
+  <span class="caret"></span>
+<% end %>
+<ul class="dropdown-menu dropdown-notification scroll" id="notifications">
+  <% current_user.notifications.order_by_created.each do |notification| %>
+    <%= render "notifications/notification", notification: notification %>
+  <% end %>
+</ul>

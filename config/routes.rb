@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   root 'home#index'
 
   devise_for :users, controllers: {registrations: "users_devise/registrations"}
@@ -9,7 +10,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :destroy]
   end
   resources :users, only: :show
-
+  resources :notifications, only: [:index, :show]
 
   get "tags/:tag", to: "posts#index", as: :tag
 
