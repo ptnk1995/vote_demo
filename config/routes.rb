@@ -13,5 +13,7 @@ Rails.application.routes.draw do
   resources :notifications, only: [:index, :show]
 
   get "tags/:tag", to: "posts#index", as: :tag
+  get "/chatwork", to: "chatwork#index"
+  post "/chatwork", to: "chatwork#send_message"
 
 end

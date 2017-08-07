@@ -51,6 +51,8 @@ GEM
       sass (>= 3.3.4)
     builder (3.2.3)
     byebug (9.0.6)
+    chatwork (0.4.1)
+      faraday (~> 0.9)
     closure_tree (6.5.0)
       activerecord (>= 4.1.0)
       with_advisory_lock (>= 3.0.0)
@@ -71,6 +73,8 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.7.0)
+    faraday (0.12.2)
+      multipart-post (>= 1.2, < 3)
     ffi (1.9.18)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
@@ -96,6 +100,7 @@ GEM
     mini_portile2 (2.1.0)
     minitest (5.10.2)
     multi_json (1.12.1)
+    multipart-post (2.0.0)
     nio4r (2.1.0)
     nokogiri (1.7.2)
       mini_portile2 (~> 2.1.0)
@@ -193,6 +198,7 @@ DEPENDENCIES
   acts_as_votable
   bootstrap-sass (~> 3.3.6)
   byebug
+  chatwork
   closure_tree
   coffee-rails (~> 4.2)
   devise
@@ -213,4 +219,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.15.1
+   1.15.2

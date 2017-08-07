@@ -36,4 +36,8 @@ en:
       post: "POST"
     post_form:
       descrip: "Description"
+  room_id: "Room ID"
+  user_id: "User id"
+  content: "Content"
+  sent_message: "Sent Message"
 
