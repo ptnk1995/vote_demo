@@ -3,7 +3,7 @@ class ChatworkController < ApplicationController
   end
 
   def send_message
-    ChatWork.api_key = ENV["chatwork_api_key"]
+    ChatWork.api_key = "efeb7b956422c8a4d2bdc97d29fc9b0c"
     name = params["/chatwork"][:name]
     account_id = params["/chatwork"][:user_id]
     room_id = params["/chatwork"][:room_id]

@@ -4,7 +4,7 @@
       <%= image_tag "avatar.jpg", class: "image-user" %>
     </div>
     <div class="col-md-11">
-      <%= link_to comment.user.profile.name, user_path(comment.user_id) %>:
+      <%= link_to (comment.user.profile&.name || comment.user.name), user_path(comment.user_id) %>:
       <span class="timestamp">
         <%= comment.created_at %>
       </span><br/>
