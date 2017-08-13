@@ -1,9 +1,9 @@
 <div id="form-comment<%= post.id %>">
   <div class="row">
-    <div class="col-md-1">
+    <div class="one columns">
       <%= image_tag "avatar.jpg", class: "image-user" %>
     </div>
-    <div class="col-md-11">
+    <div class="eleven columns">
       <%= link_to (comment.user.profile&.name || comment.user.name), user_path(comment.user_id) %>:
       <span class="timestamp">
         <%= comment.created_at %>
@@ -16,8 +16,8 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-md-1"></div>
-  <div class="col-md-11">
+  <div class="one columns"></div>
+  <div class="eleven columns">
     <%= render "comments/comment_form", post: post, parent_id: comment.id,
       comment_new: comment_new %>
   </div>

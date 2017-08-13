@@ -1,7 +1,8 @@
 <%= link_to notifications_path, class: "dropdown-toggle", id: "noti-count",
   data: {toggle: "dropdown"}, aria: {haspopup: "true", expanded: "false"},
   remote: true do %>
-  <span class="glyphicon glyphicon-bell"></span>
+  <%= image_tag "bell.png" %>
+  <%= binding.pry %>
   <span class="notification-number"><%= number %></span>
   <span class="caret"></span>
 <% end %>

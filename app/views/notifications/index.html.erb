@@ -1,0 +1,7 @@
+<div style="width: 80%; margin-left: 10%; margin-top: 50px;">
+  <h3><%= image_tag "bell.png" %>Notifications</h3>
+    <% current_user.notifications.order_by_created.each do |notification| %>
+      <%= render "notifications/notification", notification: notification %>
+    <% end %>
+
+</div>

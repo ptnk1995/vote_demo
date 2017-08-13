@@ -6,11 +6,11 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
-    <%= render "layouts/header" %>
-    <div class="container" style="margin-top: 100px;">
+    <div class="container">
       <script type="text/javascript">
         <% flash.each do |message_type, message| %>
           toastr['<%= message_type.gsub("notice", "info") %>']('<%= message %>');

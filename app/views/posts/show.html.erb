@@ -1,25 +1,22 @@
 <p id="notice"><%= notice %></p>
+<div style="width: 80%; margin-left: 10%;">
+  <p>
+    <strong><h3 style="text-align: center;"><%= @post.title %></h3></strong>
+  </p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+  <p>
+    <%= @post.content %>
+  </p>
+  <p>
+    <strong>Tags:</strong>
+    <%= raw @post.tag_list.map { |t| link_to t, tag_path(t), class: "btn-sm btn-default" }.join(' ') %>
+  </p>
 
-<p>
-  <strong>Content:</strong>
-  <%= @post.content %>
-</p>
-<p>
-  <strong>Tags:</strong>
-  <%= raw @post.tag_list.map { |t| link_to t, tag_path(t), class: "btn-sm btn-default" }.join(' ') %>
-</p>
+  <%= render "vote_form", post: @post %>
 
-<%= render "vote_form", post: @post %>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
-<div class="row">
-  <%= render "comments/comment_form", post: @post, parent_id: nil, comment_new: @comment %>
-  <%= comments_tree_for @supports.comments_tree.hash_tree(limit_depth: 5),
-      @post, @supports.comment %>
+  <%= link_to 'Edit', edit_post_path(@post) %> |
+  <%= link_to 'Back', posts_path %>
+    <%= render "comments/comment_form", post: @post, parent_id: nil, comment_new: @comment %>
+    <%= comments_tree_for @supports.comments_tree.hash_tree(limit_depth: 5),
+        @post, @supports.comment %>
 </div>

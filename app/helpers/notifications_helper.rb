@@ -1,8 +1,7 @@
 module NotificationsHelper
   def noti notification
     post = notification.notificationable
-    notification.notified_by.profile.name + t("has-" + notification
-      .notice_type) + post.title
+    notification.notified_by.email + t("has-" + notification.notice_type) + post.title
   end
 
   def number
