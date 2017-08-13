@@ -1,34 +1,54 @@
-<p id="notice"><%= notice %></p>
-Hi <%= current_user.name %>
+<div style="width: 80%; margin-left: 10%;">
+  <% if user_signed_in? %>
+    <div style="float: right;">
+      Hi <%= current_user.profile&.name %>
+      <%= link_to notifications_path, class: "dropdown-toggle", id: "noti-count",
+        data: {toggle: "dropdown"}, aria: {haspopup: "true", expanded: "false"},
+        remote: true do %>
+        <%= image_tag "bell.png" %>
+        <span class="notification-number"><%= number %></span>
+        <span class="caret"></span>
+      <% end %>
+      <p>
+      <% if user_signed_in? %>
+        <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+      <% end %>
+      </p>
+    </div>
+  <% end %>
+</div>
+<div style="clear: both;"></div>
+<h1 style="text-align: center;">Blogs of Tien</h1>
+<%= link_to 'New Post', new_post_path, {style: "margin-left: 10%;", class: "button"} %>
 
-<h1>Posts</h1>
+<div class="index align-left" style="margin-left: 10%; width: 80%;">
+  <!-- Definition List -->
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Content</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <section>
+   <!--  <header>
+      <h3>Follow me <code style="color: red;">ptnk1995</code></h3><br/>
+      <%= image_tag "tien.jpg", style: "" %>
+      <ul class="icons">
+        <li><a href="#" class="icon style1 fa-twitter"><span class="label">Twitter</span></a></li>
+        <li><a href="#" class="icon style1 fa-facebook"><span class="label">Facebook</span></a></li>
+        <li><a href="#" class="icon style1 fa-instagram"><span class="label">Instagram</span></a></li>
+        <li><a href="#" class="icon style1 fa-github"><span class="label">Github</span></a></li>
+        <li><a href="#" class="icon style1 fa-dribbble"><span class="label">Dribbble</span></a></li>
+      </ul>
 
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.title %></td>
-        <td><%= post.content %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-<% if user_signed_in? %>
-  <li>
-  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-  </li>
-<% end %>
-<%= link_to 'New Post', new_post_path %>
+    </header> -->
+    <div class="content">
+      <% @posts.each do |post| %>
+        <div >
+        <h2><%= post.title %></h2>
+        <%= raw post.tag_list.map { |t| link_to t, tag_path(t), class: "button small" }.join(' ') %>
+        <p><%= post.content %></p>
+        <%= link_to 'Show', post %>
+        <%= link_to 'Edit', edit_post_path(post) %>
+        <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+        <hr />
+      <% end %>
+    </div>
+  </section>
+</div>

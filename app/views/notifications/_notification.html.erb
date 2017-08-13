@@ -1,3 +1,11 @@
-<li class = "notification <%= notification.read %>">
-  <%= link_to noti(notification), notification, method: :get %>
-</li>
+<div class="row notification <%= notification.read %>" style="border-bottom: 1px solid #BDC3C7;">
+  <div class="one columns">
+    <%= image_tag "avatar.jpg", class: "image-user", style: "border-radius: 50%; margin-top: 10px;" %>
+  </div>
+  <div class="eleven columns">
+    <%= link_to noti(notification), notification, method: :get %><br />
+    <span class="timestamp">
+      <%= notification.created_at %>
+    </span>
+  </div>
+</div>

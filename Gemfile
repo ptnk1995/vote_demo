@@ -4,6 +4,7 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
+gem "font-awesome-rails"
 gem "chatwork"
 gem "omniauth-facebook"
 gem "config"
@@ -14,6 +15,9 @@ gem 'devise'
 gem "acts_as_votable"
 gem 'acts-as-taggable-on', '~> 4.0'
 gem "bootstrap-sass", "~> 3.3.6"
+gem 'carrierwave',             '1.1.0'
+gem 'mini_magick',             '4.7.0'
+gem 'fog',                     '1.40.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.3'
 # Use sqlite3 as the database for Active Record
